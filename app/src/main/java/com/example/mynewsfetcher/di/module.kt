@@ -1,16 +1,20 @@
 package com.example.mynewsfetcher
 
 import android.util.Log
+import androidx.room.Room
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://newsapi.org/"
-const val API_KEY = "71be7081729c4f3d85b2c199a9510d57"
 
-val appModule = module {
+const val API_KEY = "71be7081729c4f3d85b2c199a9510d57"
+const val APP_DATABASE = "APP_DATABASE"
+
+val networkModule = module {
 
 
     single<OkHttpClient> {
@@ -32,5 +36,17 @@ val appModule = module {
         .client(get<OkHttpClient>())
         .build()
     }
+}
+val databaseModule = module {
 
+    single {
+        Room
+            .databaseBuilder(androidContext(), AppDatabase::class.java, APP_DATABASE)
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    single {
+        get<AppDatabase>().bookmarksDao()
+    }
 }

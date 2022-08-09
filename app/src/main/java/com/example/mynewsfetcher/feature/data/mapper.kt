@@ -5,7 +5,10 @@ import com.example.mynewsfetcher.feature.domain.ArticleModel
 
 fun ArticleRemoteModel.toDomain() = ArticleModel(
         author = author ?:"",
-        tittle = tittle ?:"" ,
+        title = title ?:"" ,
         description = description ?:"",
-        url = url
+        url = url,
+        urlToImage = urlToImage ?:"",
+        publishedAt = publishedAt ?:"",
+        content = content ?:"",
 )

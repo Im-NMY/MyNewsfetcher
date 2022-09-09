@@ -13,28 +13,27 @@ private const val BASE_URL = "https://newsapi.org/"
 
 const val API_KEY = "71be7081729c4f3d85b2c199a9510d57"
 const val APP_DATABASE = "APP_DATABASE"
+const val BUNDLE_KEY_FOR_ARTICLE_MODEL = "article"
 
 val networkModule = module {
 
-
     single<OkHttpClient> {
-        OkHttpClient.
-        Builder().
-        addInterceptor(
+        OkHttpClient.Builder().addInterceptor(
             HttpLoggingInterceptor { massage ->
                 Log.d("OkHttp", massage)
             }.apply {
                 setLevel(HttpLoggingInterceptor.Level.BODY)
             }
         )
-        .build()
+            .build()
     }
 
-    single<Retrofit> {  Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(get<OkHttpClient>())
-        .build()
+    single<Retrofit> {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(get<OkHttpClient>())
+            .build()
     }
 }
 val databaseModule = module {

@@ -2,10 +2,10 @@ package com.example.mynewsfetcher.feature.data.module
 
 import com.google.gson.annotations.SerializedName
 
-data class ArticleRemoteModel (
+data class ArticleRemoteModel(
     @SerializedName("author")
     val author: String?,
-    @SerializedName("tittle")
+    @SerializedName("title")
     val title: String?,
     @SerializedName("description")
     val description: String?,
@@ -17,4 +17,4 @@ data class ArticleRemoteModel (
     val publishedAt: String?,
     @SerializedName("content")
     val content: String?,
-    )
+)

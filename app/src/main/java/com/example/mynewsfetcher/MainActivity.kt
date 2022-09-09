@@ -8,28 +8,35 @@ import com.example.mynewsfetcher.feature.mainscreen.MainScreenFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
     private val bottomNavigationMenu: BottomNavigationView by lazy { findViewById(R.id.bnvBar) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.beginTransaction().replace(R.id.container, MainScreenFragment())
+            .commit()
 
-        bottomNavigationMenu.setOnItemSelectedListener{
-            when (it.itemId){
+        bottomNavigationMenu.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.itemMain -> {
-                    selectTab(MainScreenFragment())
+                    if (bottomNavigationMenu.selectedItemId != it.itemId) {
+                        selectTab(MainScreenFragment())
+                    }
                 }
                 R.id.itemBookmarks -> {
-                    selectTab(BookmarksFragment())
+                    if (bottomNavigationMenu.selectedItemId != it.itemId) {
+                        selectTab(BookmarksFragment())
+                    }
                 }
                 else -> {}
             }
             true
         }
-        bottomNavigationMenu.selectedItemId = R.id.itemMain
     }
-    private fun selectTab(fragment: Fragment){
-           supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
-               .commit()
+
+    private fun selectTab(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
+            .commit()
     }
 }

@@ -3,12 +3,16 @@ package com.example.mynewsfetcher.feature.bookmarks.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynewsfetcher.R
 import com.example.mynewsfetcher.feature.domain.ArticleModel
 
-class BookmarksAdapter : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
+class BookmarksAdapter(
+    private val onItemClicked: (ArticleModel) -> Unit,
+    private val clickedRemoveBookmarks: (Int) -> Unit
+) : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
 
     private var articlesData: List<ArticleModel> = emptyList()
 
@@ -17,13 +21,17 @@ class BookmarksAdapter : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
      * (пользовательский ViewHolder).
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textAuthor: TextView = view.findViewById(R.id.tvAuthor)
-        val textTitle: TextView = view.findViewById(R.id.tvTitle)
-        val textDescription: TextView = view.findViewById(R.id.tvDescription)
-        val textUrl: TextView = view.findViewById(R.id.tvUrl)
-        val textUrlToImage: TextView = view.findViewById(R.id.tvUrlToImage)
-        val textPublishedAt: TextView = view.findViewById(R.id.tvPublishedAt)
-        val textContent: TextView = view.findViewById(R.id.tvContent)
+
+        val textTitle: TextView
+        val textData: TextView
+        val delBookmark: ImageView
+
+        init {
+            textTitle = view.findViewById(R.id.tvTitle)
+            textData = view.findViewById(R.id.tvDate)
+            delBookmark = view.findViewById<ImageView?>(R.id.ivBookmarkDel)
+                .also { it.visibility = ImageView.VISIBLE }
+        }
     }
 
     // Создание новых представлений (вызывается менеджером компоновки)
@@ -40,19 +48,20 @@ class BookmarksAdapter : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
 
         // Получите элемент из вашего набора данных в этой позиции и замените
         // содержимое представления с этим элементом
-        viewHolder.textAuthor.text = articlesData[position].author
+        viewHolder.delBookmark.setOnClickListener {
+            clickedRemoveBookmarks.invoke(position)
+        }
+        viewHolder.itemView.setOnClickListener {
+            onItemClicked.invoke(articlesData[position])
+        }
         viewHolder.textTitle.text = articlesData[position].title
-        viewHolder.textDescription.text = articlesData[position].description
-        viewHolder.textUrl.text = articlesData[position].url
-        viewHolder.textUrlToImage.text = articlesData[position].urlToImage
-        viewHolder.textPublishedAt.text = articlesData[position].publishedAt
-        viewHolder.textContent.text = articlesData[position].content
+        viewHolder.textData.text = articlesData[position].publishedAt
     }
 
     // Вернуть размер вашего набора данных (вызывается менеджером компоновки)
     override fun getItemCount() = articlesData.size
 
-    fun setData(bookmarksArticle: List<ArticleModel>){
+    fun setData(bookmarksArticle: List<ArticleModel>) {
         articlesData = bookmarksArticle
         notifyDataSetChanged()
     }

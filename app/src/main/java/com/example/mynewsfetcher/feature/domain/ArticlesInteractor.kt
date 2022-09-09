@@ -5,5 +5,5 @@ import com.example.mynewsfetcher.feature.data.ArticlesRepository
 
 class ArticlesInteractor(private val repository: ArticlesRepository) {
 
-    suspend fun getArticles() = attempt{ repository.getArticles() }
+    suspend fun getArticles() = attempt { repository.getArticles() }
 }

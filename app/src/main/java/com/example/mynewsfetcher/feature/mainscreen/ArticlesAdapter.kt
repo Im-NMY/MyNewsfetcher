@@ -3,13 +3,17 @@ package com.example.mynewsfetcher.feature.mainscreen
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynewsfetcher.R
 import com.example.mynewsfetcher.feature.domain.ArticleModel
 
-class ArticlesAdapter(val onItemClicked: (Int) -> Unit ) : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
-
+class ArticlesAdapter(
+    val onItemClicked: (ArticleModel) -> Unit,
+    val onAddToBookmarksClicked: (Int) -> Unit
+) : RecyclerView
+.Adapter<ArticlesAdapter.ViewHolder>() {
     private var articlesData: List<ArticleModel> = emptyList()
 
     /**
@@ -17,13 +21,19 @@ class ArticlesAdapter(val onItemClicked: (Int) -> Unit ) : RecyclerView.Adapter<
      * (пользовательский ViewHolder).
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textAuthor: TextView = view.findViewById(R.id.tvAuthor)
-        val textTitle: TextView = view.findViewById(R.id.tvTitle)
-        val textDescription: TextView = view.findViewById(R.id.tvDescription)
-        val textUrl: TextView = view.findViewById(R.id.tvUrl)
-        val textUrlToImage: TextView = view.findViewById(R.id.tvUrlToImage)
-        val textPublishedAt: TextView = view.findViewById(R.id.tvPublishedAt)
-        val textContent: TextView = view.findViewById(R.id.tvContent)
+
+        val textTitle: TextView
+        val textData: TextView
+        val yesBookmark: ImageView
+        val noBookmarks: ImageView
+
+        init {
+            textTitle = view.findViewById(R.id.tvTitle)
+            textData = view.findViewById(R.id.tvDate)
+            yesBookmark = view.findViewById(R.id.ivBookmarkYes)
+            noBookmarks = view.findViewById<ImageView?>(R.id.ivBookmarksNo)
+                .also { it.visibility = ImageView.VISIBLE }
+        }
     }
 
     // Создание новых представлений (вызывается менеджером компоновки)
@@ -31,34 +41,34 @@ class ArticlesAdapter(val onItemClicked: (Int) -> Unit ) : RecyclerView.Adapter<
         // Создайте новое представление, определяющее пользовательский интерфейс элемента списка
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.item_article, viewGroup, false)
-
         return ViewHolder(view)
     }
 
     // Заменить содержимое представления (вызывается менеджером компоновки)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        viewHolder.itemView.setOnClickListener {
-            onItemClicked(position)
-        }
-
         // Получите элемент из вашего набора данных в этой позиции и замените
         // содержимое представления с этим элементом
-        viewHolder.textAuthor.text = articlesData[position].author
+
+        viewHolder.noBookmarks.setOnClickListener {
+            onAddToBookmarksClicked.invoke(position)
+            notifyDataSetChanged()
+        }
+
+        viewHolder.itemView.setOnClickListener {
+            onItemClicked.invoke(articlesData[position])
+        }
+
         viewHolder.textTitle.text = articlesData[position].title
-        viewHolder.textDescription.text = articlesData[position].description
-        viewHolder.textUrl.text = articlesData[position].url
-        viewHolder.textUrlToImage.text = articlesData[position].urlToImage
-        viewHolder.textPublishedAt.text = articlesData[position].publishedAt
-        viewHolder.textContent.text = articlesData[position].content
+        viewHolder.textData.text = articlesData[position].publishedAt
+        viewHolder.yesBookmark.visibility =
+            if (articlesData[position].bookmarkFlag) ImageView.VISIBLE else ImageView.GONE
     }
 
     // Вернуть размер вашего набора данных (вызывается менеджером компоновки)
     override fun getItemCount() = articlesData.size
 
-        fun setData(articles: List<ArticleModel>){
+    fun setData(articles: List<ArticleModel>) {
         articlesData = articles
         notifyDataSetChanged()
     }
-
 }

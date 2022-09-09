@@ -14,11 +14,11 @@ fun BookmarkEntity.toDomain() = ArticleModel(
 )
 
 fun ArticleModel.toEntity() = BookmarkEntity(
-    author = author,
-    title = title,
-    description = description,
-    url = url,
-    urlToImage = urlToImage,
-    publishedAt = publishedAt,
-    content = content
+    title = title ?: "",
+    author = author ?: "",
+    description = description ?: "",
+    url = url ?: "",
+    urlToImage = urlToImage ?: "",
+    publishedAt = publishedAt ?: "",
+    content = content ?: ""
 )

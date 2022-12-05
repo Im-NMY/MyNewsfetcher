@@ -1,7 +1,8 @@
-package com.example.mynewsfetcher
+package com.example.mynewsfetcher.di
 
 import android.util.Log
 import androidx.room.Room
+import com.example.mynewsfetcher.AppDatabase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext

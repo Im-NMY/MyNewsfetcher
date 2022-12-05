@@ -11,7 +11,7 @@
     <color name="background_dark_night">#0C2844</color>
 
     <color name="background_light">#F1E1CB</color>
-    <color name="background_medium">#B6C6D5</color>
+    <color name="background_medium">#90B6C6D5</color>
     <color name="background_dark">#5C758D</color>
 
     <color name="green_500">#A3BDD5</color>
@@ -23,6 +23,7 @@
     <color name="black_30">#4D000000</color>
     <color name="black_70">#B3000000</color>
     <color name="black_100">#000000</color>
+    <color name="black1_100">#80000000</color>
     <color name="white_80">#ccffffff</color>
     <color name="white_100">#FFFFFF</color>
 

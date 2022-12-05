@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.mynewsfetcher.BUNDLE_KEY_FOR_ARTICLE_MODEL
+import com.example.mynewsfetcher.di.BUNDLE_KEY_FOR_ARTICLE_MODEL
 import com.example.mynewsfetcher.R
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.concurrent.Executors
 

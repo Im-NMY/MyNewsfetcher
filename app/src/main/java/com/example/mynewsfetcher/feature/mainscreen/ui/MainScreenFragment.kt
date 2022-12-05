@@ -1,4 +1,4 @@
-package com.example.mynewsfetcher.feature.mainscreen
+package com.example.mynewsfetcher.feature.mainscreen.ui
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mynewsfetcher.BUNDLE_KEY_FOR_ARTICLE_MODEL
 import com.example.mynewsfetcher.R
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.di.BUNDLE_KEY_FOR_ARTICLE_MODEL
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 import com.example.mynewsfetcher.feature.newsinfo.ui.NewsInfoFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -1,4 +1,4 @@
-package com.example.mynewsfetcher.feature.mainscreen
+package com.example.mynewsfetcher.feature.mainscreen.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynewsfetcher.R
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 class ArticlesAdapter(
     val onItemClicked: (ArticleModel) -> Unit,

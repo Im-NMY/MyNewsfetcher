@@ -1,7 +1,7 @@
-package com.example.mynewsfetcher.feature.domain
+package com.example.mynewsfetcher.feature.mainscreen.domain
 
 import com.example.mynewsfetcher.base.attempt
-import com.example.mynewsfetcher.feature.data.ArticlesRepository
+import com.example.mynewsfetcher.feature.mainscreen.data.ArticlesRepository
 
 class ArticlesInteractor(private val repository: ArticlesRepository) {
 

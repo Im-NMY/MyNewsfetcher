@@ -1,9 +1,10 @@
 package com.example.mynewsfetcher
 
 import android.app.Application
+import com.example.mynewsfetcher.di.databaseModule
+import com.example.mynewsfetcher.di.networkModule
 import com.example.mynewsfetcher.feature.bookmarks.di.bookmarksModule
-import com.example.mynewsfetcher.feature.di.mainScreenModule
-import com.example.mynewsfetcher.feature.mainscreen.MainScreenViewModel
+import com.example.mynewsfetcher.feature.mainscreen.di.mainScreenModule
 import com.example.mynewsfetcher.feature.newsinfo.di.infoScreenModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

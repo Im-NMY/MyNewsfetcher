@@ -2,7 +2,7 @@ package com.example.mynewsfetcher.feature.bookmarks.data.local
 
 import com.example.mynewsfetcher.feature.bookmarks.data.toDomain
 import com.example.mynewsfetcher.feature.bookmarks.data.toEntity
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 class BookmarksRepositoryImpl(private val bookmarksLocalSource: BookmarksLocalSource) :
     BookmarksRepository {

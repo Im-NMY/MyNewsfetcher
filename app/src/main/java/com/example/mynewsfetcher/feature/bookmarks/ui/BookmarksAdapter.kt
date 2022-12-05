@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynewsfetcher.R
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 class BookmarksAdapter(
     private val onItemClicked: (ArticleModel) -> Unit,

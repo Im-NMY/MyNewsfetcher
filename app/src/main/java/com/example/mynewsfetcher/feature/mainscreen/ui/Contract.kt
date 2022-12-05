@@ -1,13 +1,13 @@
-package com.example.mynewsfetcher.feature.mainscreen
+package com.example.mynewsfetcher.feature.mainscreen.ui
 
 import com.example.mynewsfetcher.base.Event
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 data class ViewState(
     val isSearchEnable: Boolean,
     var editText: String?,
     val articlesShown: List<ArticleModel>,
-    val articlesList: List<ArticleModel>
+    val articlesList: List<ArticleModel>,
 )
 
 sealed class UiEvent : Event {

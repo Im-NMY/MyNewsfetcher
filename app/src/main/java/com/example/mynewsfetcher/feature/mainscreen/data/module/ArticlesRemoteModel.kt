@@ -1,4 +1,4 @@
-package com.example.mynewsfetcher.feature.data.module
+package com.example.mynewsfetcher.feature.mainscreen.data.module
 
 import com.google.gson.annotations.SerializedName
 

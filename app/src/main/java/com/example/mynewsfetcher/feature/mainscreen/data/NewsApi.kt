@@ -1,8 +1,7 @@
-package com.example.mynewsfetcher.feature.data
+package com.example.mynewsfetcher.feature.mainscreen.data
 
-import com.example.mynewsfetcher.API_KEY
-import com.example.mynewsfetcher.feature.data.module.ArticleRemoteModel
-import com.example.mynewsfetcher.feature.data.module.ArticlesRemoteModel
+import com.example.mynewsfetcher.di.API_KEY
+import com.example.mynewsfetcher.feature.mainscreen.data.module.ArticlesRemoteModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 

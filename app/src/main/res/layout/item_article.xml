@@ -1,62 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="115dp"
-    android:layout_margin="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:cardElevation="3dp"
     app:cardMaxElevation="3dp"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?colorSecondary">
-
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="test test"
+            android:textColor="@color/black_100"
+            app:layout_constraintEnd_toStartOf="@+id/ivBookmarksNo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvTitle"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp" />
-
-        <ImageView
-            android:id="@+id/ivBookmarkYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_baseline_bookmark_24"
-            android:visibility="gone" />
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="test test"
+            android:textColor="@color/black_100"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/ivBookmarksNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="4dp"
             android:src="@drawable/ic_baseline_turned_in_not_24"
-            android:visibility="gone" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivBookmarkYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="4dp"
+            android:src="@drawable/ic_baseline_bookmark_24"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageView
             android:id="@+id/ivBookmarkDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="4dp"
             android:src="@drawable/ic_baseline_close_24"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

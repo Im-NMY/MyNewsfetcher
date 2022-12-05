@@ -1,4 +1,4 @@
-package com.example.mynewsfetcher.feature.domain
+package com.example.mynewsfetcher.feature.mainscreen.domain
 
 import android.os.Parcel
 import android.os.Parcelable

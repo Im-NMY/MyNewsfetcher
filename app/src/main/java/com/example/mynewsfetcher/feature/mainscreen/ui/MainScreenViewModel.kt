@@ -1,11 +1,11 @@
-package com.example.mynewsfetcher.feature.mainscreen
+package com.example.mynewsfetcher.feature.mainscreen.ui
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.mynewsfetcher.base.BaseViewModel
 import com.example.mynewsfetcher.base.Event
 import com.example.mynewsfetcher.feature.bookmarks.domain.BookmarksInteractor
-import com.example.mynewsfetcher.feature.domain.ArticlesInteractor
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticlesInteractor
 import kotlinx.coroutines.launch
 
 class MainScreenViewModel(
@@ -16,7 +16,6 @@ class MainScreenViewModel(
     init {
         processDataEvent(DataEvent.LoadArticles)
     }
-
 
     override fun initialViewState() = ViewState(
         articlesList = emptyList(),

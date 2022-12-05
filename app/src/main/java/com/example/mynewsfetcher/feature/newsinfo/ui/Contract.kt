@@ -1,7 +1,7 @@
 package com.example.mynewsfetcher.feature.newsinfo.ui
 
 import com.example.mynewsfetcher.base.Event
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 data class ViewState(
     val articleAuthor: String?,

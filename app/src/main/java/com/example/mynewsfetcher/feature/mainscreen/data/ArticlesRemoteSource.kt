@@ -1,7 +1,7 @@
-package com.example.mynewsfetcher.feature.data
+package com.example.mynewsfetcher.feature.mainscreen.data
 
 
-import com.example.mynewsfetcher.feature.data.module.ArticlesRemoteModel
+import com.example.mynewsfetcher.feature.mainscreen.data.module.ArticlesRemoteModel
 
 class ArticlesRemoteSource(private val api: NewsApi) {
 

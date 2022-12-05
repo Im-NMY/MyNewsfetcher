@@ -1,6 +1,6 @@
 package com.example.mynewsfetcher.feature.bookmarks.data.local
 
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 interface BookmarksRepository {
     suspend fun create(model: ArticleModel)

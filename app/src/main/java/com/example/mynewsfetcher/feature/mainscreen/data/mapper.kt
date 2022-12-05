@@ -1,7 +1,7 @@
-package com.example.mynewsfetcher.feature.data
+package com.example.mynewsfetcher.feature.mainscreen.data
 
-import com.example.mynewsfetcher.feature.data.module.ArticleRemoteModel
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.data.module.ArticleRemoteModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 fun ArticleRemoteModel.toDomain() = ArticleModel(
     author = author ?: "",

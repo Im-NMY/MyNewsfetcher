@@ -1,7 +1,7 @@
 package com.example.mynewsfetcher.feature.bookmarks.data
 
 import com.example.mynewsfetcher.feature.bookmarks.data.local.model.BookmarkEntity
-import com.example.mynewsfetcher.feature.domain.ArticleModel
+import com.example.mynewsfetcher.feature.mainscreen.domain.ArticleModel
 
 fun BookmarkEntity.toDomain() = ArticleModel(
     author = author,

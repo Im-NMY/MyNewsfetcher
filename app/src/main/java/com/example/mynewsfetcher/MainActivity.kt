@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.mynewsfetcher.feature.bookmarks.ui.BookmarksFragment
-import com.example.mynewsfetcher.feature.mainscreen.MainScreenFragment
+import com.example.mynewsfetcher.feature.mainscreen.ui.MainScreenFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
